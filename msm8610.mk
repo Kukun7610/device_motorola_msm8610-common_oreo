@@ -89,6 +89,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+# Bluetooth HAL
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    libbt-vendor
+ 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
@@ -182,6 +187,7 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
     hostapd_default.conf \
     hostapd.accept \
     hostapd.deny \
@@ -194,7 +200,8 @@ PRODUCT_PACKAGES += \
     wlan_persist_symlink \
     wcnss_service \
     libQWiFiSoftApCfg \
-    libqsap_sdk
+    libqsap_sdk \
+    wificond
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
