@@ -108,11 +108,11 @@
 #define AID_NET_BT_STACK  3008  /* bluetooth: access config files */
 #define AID_READPROC      3009  /* Allow /proc read access */
 #define AID_WAKELOCK      3010  /* Allow system wakelock read/write access */
+#define AID_UHID          3011  /* Allow read/write to /dev/uhid node */
 
-#define AID_SENSORS       3011 /* access to /dev/socket/sensor_ctl_socket & QCCI/QCSI */
+#define AID_SENSORS       3012 /* access to /dev/socket/sensor_ctl_socket & QCCI/QCSI */
+#define AID_QCOM_DIAG     3013  /* can read/write /dev/diag */
 
-#define AID_RFS           3012  /* Remote Filesystem for peripheral processors */
-#define AID_RFS_SHARED    3013  /* Shared files for Remote Filesystem for peripheral processors  */
 
 /* The range 5000-5999 is also reserved for OEM, and must never be used here. */
 #define AID_OEM_RESERVED_2_START 5000
@@ -133,9 +133,17 @@
 #define AID_MOT_DLNA      9011  /* DLNA native */
 #define AID_MOT_ATVC      9012  /* mot_atvc - This is for use of the ATVC service ONLY */
 #define AID_SPRINT_EXTENSION 9013  /* IKASANTISPRINT-149 sprint extension service */
+
 #define AID_MOT_DBVC      9014  /* mot_dbvc - This group is used to access DataBlock feature related data */
 /* Motorola IDs */
+#define AID_FINGERP       9015  /* IKFPS-98 Add permission group for fingerprint */
+#define AID_MOT_ESDFS     9016  /* mot_esdfs for ESDFS package list parsing */
+#define AID_POWER         9017  /* power management */
+#define AID_ITSON         9018  /* itson permission  */
+#define AID_MOT_DTV       9019  /* dtv */
 
+#define AID_RFS           3012  /* Remote Filesystem for peripheral processors */
+#define AID_RFS_SHARED    3013  /* Shared files for Remote Filesystem for peripheral processors  */
 #define AID_EVERYBODY     9997  /* shared between all apps in the same profile */
 
 #define AID_MISC          9998  /* access to misc storage */
@@ -145,7 +153,7 @@
 
 #define AID_ISOLATED_START 99000 /* start of uids for fully isolated sandboxed processes */
 #define AID_ISOLATED_END   99999 /* end of uids for fully isolated sandboxed processes */
-
+#define AID_USER_OFFSET 100000 /* offset for uid ranges for each user */
 #define AID_USER        100000  /* offset for uid ranges for each user */
 
 #define AID_SHARED_GID_START 50000 /* start of gids for apps in each user to share */
@@ -223,6 +231,7 @@ static const struct android_id_info android_ids[] = {
     { "shell",         AID_SHELL, },
     { "cache",         AID_CACHE, },
     { "diag",          AID_DIAG, },
+    { "qcom_diag",     AID_QCOM_DIAG, },
 
     { "net_bt_admin",  AID_NET_BT_ADMIN, },
     { "net_bt",        AID_NET_BT, },
@@ -253,6 +262,13 @@ static const struct android_id_info android_ids[] = {
     { "mot_atvc",      AID_MOT_ATVC, },
     { "sprint_extension", AID_SPRINT_EXTENSION, },
     { "mot_dbvc",      AID_MOT_DBVC, },
+    { "fingerp",       AID_FINGERP, },
+    { "mot_esdfs",     AID_MOT_ESDFS, },
+    { "mot_atvc",      AID_MOT_ATVC, },
+    { "mot_esdfs",     AID_MOT_ESDFS, },
+    { "power",         AID_POWER, },
+    { "itson",         AID_ITSON, },
+    { "mot_dtv",       AID_MOT_DTV, },
     /* Motorola IDs */
 
     { "rfs",           AID_RFS, },
